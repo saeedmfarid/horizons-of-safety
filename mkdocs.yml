@@ -1,0 +1,50 @@
+site_name: افق‌های ایمنی — Horizons of Safety
+site_description: Theoretical, Analytical, and Multiscale Foundations
+site_author: Hidden Thought
+
+theme:
+  name: material
+  language: fa
+  direction: rtl
+  features: [navigation.instant, navigation.tracking, navigation.top, search.highlight, toc.follow]
+  palette:
+    - scheme: default
+      primary: indigo
+      toggle: {icon: material/weather-night, name: حالت تاریک}
+    - scheme: slate
+      primary: indigo
+      toggle: {icon: material/weather-sunny, name: حالت روشن}
+
+markdown_extensions:
+  - md_in_html
+  - tables
+  - attr_list
+  - footnotes
+  - admonition
+  - toc: {permalink: true, toc_depth: 3}
+  - pymdownx.arithmatex: {generic: true}
+  - pymdownx.superfences
+
+extra_javascript:
+  - js/mathjax.js
+  - https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js
+
+extra_css:
+  - css/rtl.css
+
+nav:
+  - خانه: index.md
+  - "فصل ۱ — تحلیل ابعادی، مبانی احتمال، قابلیت اطمینان و آنالیز درخت خطا در مهندسی ایمنی": chapters/ch01.md
+  - "فصل ۲ — مختصات فیزیکی، مقیاس‌های طبیعت، و هندسه ظهور خطر": chapters/ch02.md
+  - "فصل ۳ — ایمنی در مقیاس زیراتمی و اتمی — فیزیک پرتوها، واپاشی‌ها، و آغاز خطرهای نادیدنی": chapters/ch03.md
+  - "فصل ۴ — ایمنی در مقیاس اتمی و مولکولی — پیوندهای شیمیایی، واکنش‌پذیری، احتراق، انفجار، و منشأ ماده‌محور خطر": chapters/ch04.md
+  - "فصل ۵ — ایمنی در مقیاس سلولی و زیستی — معماری حیات، مهندسی بقا، و درس‌هایی از سیستم‌های زنده": chapters/ch05.md
+  - "فصل ۶ — ایمنی در مقیاس بافت، اندام و بدن انسان: فیزیولوژی خطر، ارگونومی، و محدودیت‌های عملکرد انسانی": chapters/ch06.md
+  - "فصل ۷ — ایمنی در مقیاس فرد، جمع و سازمان: رفتار انسانی، فرهنگ ایمنی، و پویایی اجتماعی خطر": chapters/ch07-1.md
+  - "ch07-2.md": chapters/ch07-2.md
+  - "بخش سوم — سامانه‌های پیشرفته تحلیل ریسک و آینده ایمنی": chapters/ch07-3.md
+  - "فصل ۸ — ایمنی حریق، انفجار و دینامیک احتراق": chapters/ch08.md
+  - "فصل ۹ — ارزیابی ریسک، قابلیت اطمینان و تصمیم‌گیری ایمنی": chapters/ch09.md
+  - "فصل ۱۰ — عوامل انسانی، روان‌شناسی ایمنی و مهندسی ارگونومی": chapters/ch10.md
+  - "پیش‌گفتار فنی: نگاشت ایمنی در فضای فیزیکی": chapters/front-01.md
+  - "پیوست فصل چهارم: نمودار درختی انواع خطرهای ماده‌محور": chapters/front-06.md
