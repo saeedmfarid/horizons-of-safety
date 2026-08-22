@@ -1,83 +1,13 @@
-Restructure the manuscript and rebuild both editions
+Ignore generated editions; publish them as release assets
 
-WHAT THIS COMMIT CONTAINS
-The manuscript, a Word edition built from it, and a static site
-configuration. The markdown under chapters/ is the single source of
-truth; Horizons_of_Safety.docx and the MkDocs site are both generated
-from it and are never edited by hand.
+The Word and PDF editions are build outputs of the markdown under
+chapters/, not sources. Git stores each new version of a binary in full
+rather than as a delta, so committing a 500-page PDF on every revision
+would grow the repository without bound and slow every clone.
 
-HOW THE CONTENT WAS IMPROVED
+They are now listed in .gitignore and belong in GitHub Releases instead,
+where each version carries its own tag and notes, and where file size
+costs nothing.
 
-1. Chapter architecture
-   The book was written across many sessions, and each session closed
-   with its own summary. Chapter 9 ended four separate times, chapter 5
-   three times. A reader reaching "Chapter Summary" reasonably assumed
-   the chapter was over, then met thirty more pages. Every chapter now
-   ends once. The earlier recaps survive but are retitled to the scope
-   they actually cover, so "Extended Chapter Summary" became "Summary of
-   Quantitative Risk Analysis" and the reader knows where they stand.
-
-2. Section numbering
-   Chapters 1 to 7 numbered sections with dots, chapters 8 to 10 with
-   hyphens. All of it is dots now. Chapter 7 nested four levels deep
-   under a single 7.40 heading whose parent did not exist; those
-   subsections were promoted to their own top-level numbers, capping the
-   hierarchy at three levels. Every cross-reference in the running text
-   was rewritten alongside the numbers, so nothing points at a section
-   that no longer exists.
-
-3. Recovered headings
-   Forty-three section titles between 7.40.12 and 7.40.17 had been typed
-   as ordinary paragraphs with no heading markup. They rendered as body
-   text, never reached the table of contents, and left forty-three
-   cross-references dangling. They are headings again.
-
-4. Chapter 7 conclusion
-   The chapter concluded thirty sections before it ended. Moved to the
-   end where it belongs; intervening numbers closed the gap.
-
-5. Duplicate coverage
-   Work at height, scaffolding, excavation and lifting each appear twice:
-   once briefly as principle, once at length with numbers and stop-work
-   thresholds. Both are worth keeping, so the short one is now titled
-   "Principles of ..." and closes with a pointer to the quantitative
-   section. Four topics remain genuinely duplicated inside the
-   quantitative block and are left for a later pass.
-
-6. Editorial residue
-   A thirty-line block of reviewer notes addressed to the author, three
-   sentences about how the text was being written, and 176 chat export
-   timestamps have been removed. What the reviewer notes asked for had
-   already been written properly further down.
-
-7. Front and back matter
-   A foreword sets out the book's argument and walks through each
-   chapter. Closing remarks draw the ten chapters together, thank the
-   inspectors and standards committees whose work underlies the text, and
-   list further reading in six subject groups. These are the only
-   passages not derived from the original manuscript.
-
-8. Table captions
-   Three placeholder captions reading "Table 7-xx" now carry real
-   numbers, and each Persian caption shares a number with its English
-   twin.
-
-TYPESETTING NOTES (Word edition)
-
-Word reads w:jc="right" as "end", and the end of a right-to-left
-paragraph is the physical left. Alignment is therefore no longer stated
-at all: paragraph direction alone decides it, which means the same thing
-in Word and in every other renderer. English companion headings sit in
-right-to-left paragraphs with left-to-right runs, so they read correctly
-while lining up beneath their Persian siblings.
-
-Formulas are native OMML rather than images, so they stay editable and
-cannot be mirrored by the surrounding right-to-left text. Every style
-declares a Latin face and a complex-script face separately, so English
-inside a Persian sentence does not switch fonts. Each chapter is its own
-section with a literal running head, replacing a STYLEREF field that
-reported an error on every page not containing the referenced style.
-
-The Persian table of contents builds from outline levels; the English one
-builds from a style name. Neither depends on hidden TC fields, which
-failed silently on refresh.
+Also adds .gitattributes so binaries are never line-ending converted and
+markdown stays LF on every platform.
